@@ -125,8 +125,17 @@ public class DemoApplicationTests {
         //Enter State(Delaware)
         stateField.sendKeys("Delaware");
 
-        
+        //Find and select city field
+        WebElement cityField = driver.findElement(By.cssSelector("input[data-qa*='city']"));
 
+        //Enter city credentials
+        cityField.sendKeys("Milford");
+
+        //Find and select city field
+        WebElement zipcodeField = driver.findElement(By.cssSelector("input[data-qa*='zipcode']"));
+
+        //Enter zipcode credentials
+        zipcodeField.sendKeys("19963");
             // Close the WebDriver
 //            driver.quit();
     } // End of Test
