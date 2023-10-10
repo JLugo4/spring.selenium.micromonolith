@@ -103,11 +103,16 @@ public class DemoApplicationTests {
         //Click address Field
         WebElement addressField = driver.findElement(By.cssSelector("input[name*='address1']"));
 
-        //Make Address credentials method
-        String address = RandomStringUtils.randomAlphanumeric(10);
+        //Make AddressStreet credentials method
+        String addressStreet = RandomStringUtils.randomAlphabetic(8);
+
+        //Make House number method
+        String addressHouseNumber = RandomStringUtils.randomNumeric(3);
 
         //Make driver enter Address criteria
-        addressField.sendKeys(address + " Rd.");
+        addressField.sendKeys(addressHouseNumber + " " + addressStreet + " Rd.");
+
+
             // Close the WebDriver
 //            driver.quit();
     } // End of Test
