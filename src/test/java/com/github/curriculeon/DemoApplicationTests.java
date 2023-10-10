@@ -57,11 +57,39 @@ public class DemoApplicationTests {
         //Make driver enter email criteria
         emailField.sendKeys(randomName + "@TestEmail.com");
 
+
         //Make driver click Signup button
         driver.findElement(By.cssSelector("button[data-qa*='signup-button']")).click();
 
-            // click the sign up for news letter checkbox
-//            driver.findElement(By.id("newsletter"));
+        // Test for URL locations
+        String actual_url2 = driver.getCurrentUrl();
+        String expected2 = "https://automationexercise.com/signup";
+        Assert.assertEquals(expected2, actual_url2);
+
+        // Make driver click the sign up for news letter checkbox
+        driver.findElement(By.id("newsletter")).click();
+
+        //Click Password field
+        WebElement passwordField = driver.findElement(By.cssSelector("input[data-qa*='password']"));
+
+        //Make Password credentials method
+        String password = RandomStringUtils.randomAlphanumeric(10);
+
+        //Print email/password for login later
+        System.out.println("THIS IS THE EMAIL" + randomName + "@TestEmail.com");
+        System.out.println("THIS IS THE PASSWORD" + password);
+
+        //Enter password credentials into password field
+        passwordField.sendKeys(password);
+
+        //Click First name Field
+        WebElement firstNameField = driver.findElement(By.cssSelector("input[data-qa*='first_name']"));
+
+        //Generate a First name
+        String firstName = RandomStringUtils.randomAlphabetic(10);
+
+        
+
 
             // Close the WebDriver
 //            driver.quit();
