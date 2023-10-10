@@ -1,6 +1,8 @@
 package com.github.curriculeon;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.assertj.core.api.Assertions;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
@@ -11,7 +13,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.test.context.web.WebAppConfiguration;
+
 
 import java.sql.DriverManager;
 
@@ -20,48 +24,46 @@ import java.sql.DriverManager;
 public class DemoApplicationTests {
 
     @Test
-    public void test() {
+    public void test_sign_up() {
         // Use WebDriverManager to manage ChromeDriver
         WebDriverManager.firefoxdriver().setup();
 
         // Initialize the WebDriver
         WebDriver driver = new FirefoxDriver();
 
-        try {
+        // Navigate to the web page
+        driver.get("https://automationexercise.com/");
 
-            // Navigate to the web page
-            driver.get("http://localhost:8080/");
+        // Click on Signup/Login Button
+        driver.findElement(By.cssSelector("a[href*='/login']")).click();
 
-            // Find and interact with the input fields
-            WebElement firstNameInput = driver.findElement(By.id("fname"));
-            WebElement lastNameInput = driver.findElement(By.id("lname"));
+            // Test for URL locations
+            String actual_url = driver.getCurrentUrl();
+            String expected = "https://automationexercise.com/login";
+            Assert.assertEquals(expected, actual_url);
 
-            firstNameInput.sendKeys("John");
-            lastNameInput.sendKeys("Doe");
+        //Make driver click the name field
+        WebElement nameField = driver.findElement(By.cssSelector("input[data-qa*='signup-name']"));
 
-            // Click the "Create Person" button
-            WebElement createButton = driver.findElement(By.xpath("//button[contains(text(), 'Create Person')]"));
-            createButton.click();
+        //Generate random name
+        String randomName = RandomStringUtils.randomAlphabetic(10, 10).toLowerCase();
 
-            // Wait for the response to load (you may need to add explicit waits)
-            Thread.sleep(2000);
+        //Send random name
+        nameField.sendKeys(randomName);
 
-            // Verify the output in the "output" div
-            WebElement outputDiv = driver.findElement(By.id("output"));
-            String outputText = outputDiv.getText();
+        //Make driver click Email Address field
+        WebElement emailField = driver.findElement(By.cssSelector("input[data-qa*='signup-email']"));
 
-            if (outputText.contains("Successfully created")) {
-                System.out.println("Test passed: Person created successfully.");
-            } else {
-                System.out.println("Test failed: Person creation failed.");
-            }
+        //Make driver enter email criteria
+        emailField.sendKeys(randomName + "@TestEmail.com");
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
+        //Make driver click Signup button
+        driver.findElement(By.cssSelector("button[data-qa*='signup-button']")).click();
+
+            // click the sign up for news letter checkbox
+//            driver.findElement(By.id("newsletter"));
+
             // Close the WebDriver
-            driver.quit();
-        }
-
-    }
-}
+//            driver.quit();
+    } // End of Test
+} // End of Class
