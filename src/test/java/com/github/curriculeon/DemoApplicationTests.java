@@ -136,7 +136,17 @@ public class DemoApplicationTests {
 
         //Enter zipcode credentials
         zipcodeField.sendKeys("19963");
-            // Close the WebDriver
+
+        // Find Mobile Number field
+        WebElement mobileNumberField = driver.findElement(By.cssSelector("input[data-qa*='mobile_number']"));
+
+        //Enter mobile number
+        mobileNumberField.sendKeys("(555) 555 - 5555");
+
+        //Find and click create account
+        driver.findElement(By.cssSelector("button[data-qa*='create-account']")).click();
+
+        // Close the WebDriver
 //            driver.quit();
     } // End of Test
 } // End of Class
