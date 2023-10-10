@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -112,6 +113,19 @@ public class DemoApplicationTests {
         //Make driver enter Address criteria
         addressField.sendKeys(addressHouseNumber + " " + addressStreet + " Rd.");
 
+        // Select Country Drop bar and click it
+        WebElement dropdown = driver.findElement(By.cssSelector("select[name='country']"));
+
+        //Type "u" to select United States
+        dropdown.sendKeys("u");
+
+        //Find and select State field
+        WebElement stateField = driver.findElement(By.cssSelector("input[data-qa*='state']"));
+
+        //Enter State(Delaware)
+        stateField.sendKeys("Delaware");
+
+        
 
             // Close the WebDriver
 //            driver.quit();
