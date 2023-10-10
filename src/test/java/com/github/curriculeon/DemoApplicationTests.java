@@ -76,8 +76,8 @@ public class DemoApplicationTests {
         String password = RandomStringUtils.randomAlphanumeric(10);
 
         //Print email/password for login later
-        System.out.println("THIS IS THE EMAIL" + randomName + "@TestEmail.com");
-        System.out.println("THIS IS THE PASSWORD" + password);
+//        System.out.println("THIS IS THE EMAIL" + randomName + "@TestEmail.com");
+//        System.out.println("THIS IS THE PASSWORD" + password);
 
         //Enter password credentials into password field
         passwordField.sendKeys(password);
@@ -100,6 +100,14 @@ public class DemoApplicationTests {
         //Enter last name into Last Name field
         lastNameField.sendKeys(lastName);
 
+        //Click address Field
+        WebElement addressField = driver.findElement(By.cssSelector("input[name*='address1']"));
+
+        //Make Address credentials method
+        String address = RandomStringUtils.randomAlphanumeric(10);
+
+        //Make driver enter Address criteria
+        addressField.sendKeys(address + " Rd.");
             // Close the WebDriver
 //            driver.quit();
     } // End of Test
