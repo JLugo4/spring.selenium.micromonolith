@@ -88,8 +88,17 @@ public class DemoApplicationTests {
         //Generate a First name
         String firstName = RandomStringUtils.randomAlphabetic(10);
 
-        
+        //Enter first name into First Name field
+        firstNameField.sendKeys(firstName);
 
+        //Click Last name Field
+        WebElement lastNameField = driver.findElement(By.cssSelector("input[data-qa*='last_name']"));
+
+        //Generate a Last name
+        String lastName = RandomStringUtils.randomAlphabetic(10);
+
+        //Enter last name into Last Name field
+        lastNameField.sendKeys(lastName);
 
             // Close the WebDriver
 //            driver.quit();
