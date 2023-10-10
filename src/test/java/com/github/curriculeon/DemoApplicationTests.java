@@ -151,5 +151,18 @@ public class DemoApplicationTests {
 
         // Close the WebDriver
 //            driver.quit();
+
+        // Extra code
+        // _______________________________________________________________
+        // Test for URL locations
+//        String actual_url3 = driver.getCurrentUrl();
+//        String expected3 = "https://automationexercise.com/account_created";
+//        Assert.assertEquals(expected3, actual_url3);
+
+        //Click continue and finish
+//        driver.findElement(By.cssSelector("a[href*='/']")).click();
+//        WebElement continueButton = driver.findElement(By.cssSelector("button[data-qa='create-account']"));
+//        continueButton.sendKeys(Keys.ENTER);
+
     } // End of Test
 } // End of Class
