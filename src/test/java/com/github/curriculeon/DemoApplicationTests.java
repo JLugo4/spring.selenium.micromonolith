@@ -6,10 +6,12 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -144,7 +146,8 @@ public class DemoApplicationTests {
         mobileNumberField.sendKeys("(555) 555 - 5555");
 
         //Find and click create account
-        driver.findElement(By.cssSelector("button[data-qa*='create-account']")).click();
+        WebElement createAccountButton = driver.findElement(By.cssSelector("button[data-qa='create-account']"));
+        createAccountButton.sendKeys(Keys.ENTER);
 
         // Close the WebDriver
 //            driver.quit();
