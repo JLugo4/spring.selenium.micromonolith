@@ -1,7 +1,7 @@
 package com.github.curriculeon;
 
+import com.github.curriculeon.pages.LandingPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.assertj.core.api.Assertions;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,36 +9,31 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.test.context.web.WebAppConfiguration;
-
-
-import java.sql.DriverManager;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 public class DemoApplicationTests {
 
     @Test
-    public void test_sign_up() {
+    public void smoke_test_sign_up() {
         // Use WebDriverManager to manage ChromeDriver
         WebDriverManager.firefoxdriver().setup();
 
         // Initialize the WebDriver
-        WebDriver driver = new FirefoxDriver();
+        final WebDriver driver = new FirefoxDriver();
 
         // Navigate to the web page
         driver.get("https://automationexercise.com/");
 
+        // Instantiating SignUpPage
+        final LandingPage signUpPage = new LandingPage(driver);
+
         // Click on Signup/Login Button
-        driver.findElement(By.cssSelector("a[href*='/login']")).click();
+        signUpPage.clickSignUpLink();
 
             // Test for URL locations
             String actual_url = driver.getCurrentUrl();
