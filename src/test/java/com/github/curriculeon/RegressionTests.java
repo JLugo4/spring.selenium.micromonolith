@@ -55,7 +55,16 @@ public class RegressionTests {
         //Generate email
         String email = RandomStringUtils.randomAlphanumeric(8) + "@TestEmail.com";
 
+        //Enter email into signupEmailField
         signupEmailField.sendKeys(email);
+
+        //Find and click signup button
+        driver.findElement(By.cssSelector("button[data-qa*='signup']")).click();
+
+        // Test for URL locations
+        String actual_signUpPage = driver.getCurrentUrl();
+        String expected_signUpPage = "https://automationexercise.com/signup";
+        Assert.assertEquals(expected, actual_url);
 
         
     } // END TEST
