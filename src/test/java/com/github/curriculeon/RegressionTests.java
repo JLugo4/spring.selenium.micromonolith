@@ -77,6 +77,13 @@ public class RegressionTests {
 
         //Enter credentials into password field
         passwordField.sendKeys(password);
+
+        //Click Day drop down
+        WebElement daysDropDown = driver.findElement(By.cssSelector("select[data-qa*='days']"));
+
+        //Pick day
+        daysDropDown.sendKeys("31");
+
         
 
     } // END TEST
