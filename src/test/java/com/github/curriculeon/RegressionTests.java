@@ -49,8 +49,15 @@ public class RegressionTests {
         //Insert one character into name
         nameField.sendKeys(name);
 
+        //Find Signup_email field
+        WebElement signupEmailField = driver.findElement(By.cssSelector("input[data-qa*='signup-email']"));
 
+        //Generate email
+        String email = RandomStringUtils.randomAlphanumeric(8) + "@TestEmail.com";
 
+        signupEmailField.sendKeys(email);
+
+        
     } // END TEST
 
 }
