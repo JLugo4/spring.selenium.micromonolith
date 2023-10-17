@@ -96,7 +96,11 @@ public class RegressionTests {
         //Enter year and select year
         yearDropDown.sendKeys("1990");
 
-        
+        // Select "Sign up for our newsleter!" box
+        driver.findElement(By.cssSelector("input[name*='newsletter']")).click();
+
+        //Select "Recieve special offers from our partners!"
+        driver.findElement(By.cssSelector("input[name*='optin']")).click();
 
     } // END TEST
 
