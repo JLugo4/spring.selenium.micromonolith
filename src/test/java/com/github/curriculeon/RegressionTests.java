@@ -66,7 +66,19 @@ public class RegressionTests {
         String expected_signUpPage = "https://automationexercise.com/signup";
         Assert.assertEquals(expected, actual_url);
 
+        //Select title(Mr. or Mrs.)
+        driver.findElement(By.cssSelector("input[value*='Mr']")).click();
+
+        //Find and click passwordField
+        WebElement passwordField = driver.findElement(By.cssSelector("input[data-qa*='password']"));
+
+        //Generate password
+        String password = RandomStringUtils.randomAlphanumeric(10);
+
+        //Enter credentials into password field
+        passwordField.sendKeys(password);
         
+
     } // END TEST
 
 }
