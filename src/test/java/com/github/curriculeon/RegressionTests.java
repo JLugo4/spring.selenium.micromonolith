@@ -40,6 +40,17 @@ public class RegressionTests {
         String expected = "https://automationexercise.com/login";
         Assert.assertEquals(expected, actual_url);
 
+        //Finding and clicking the name field
+        WebElement nameField = driver.findElement(By.cssSelector("input[data-qa*='signup-name']"));
+
+        //Generate the name with only 1 character to test
+        String name = RandomStringUtils.randomAlphabetic(1);
+
+        //Insert one character into name
+        nameField.sendKeys(name);
+
+
+
     } // END TEST
 
 }
