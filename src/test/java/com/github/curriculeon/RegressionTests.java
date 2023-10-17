@@ -84,6 +84,18 @@ public class RegressionTests {
         //Pick day
         daysDropDown.sendKeys("31");
 
+        //Select month drop down
+        WebElement monthDropDown = driver.findElement(By.cssSelector("select[data-qa*='months']"));
+
+        //Pick month
+        monthDropDown.sendKeys("de");
+
+        // Select year drop down
+        WebElement yearDropDown = driver.findElement(By.cssSelector("select[data-qa*='years']"));
+
+        //Enter year and select year
+        yearDropDown.sendKeys("1990");
+
         
 
     } // END TEST
