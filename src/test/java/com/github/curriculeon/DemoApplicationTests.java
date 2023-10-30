@@ -116,11 +116,19 @@ public class DemoApplicationTests {
         //Type "u" to select United States
         dropdown.sendKeys("u");
 
+        //Study to properly understand drop down menu in selenium
+        //driver.toSelect().selectByVisibleText("My identifer");
+
+
         //Find and select State field
         WebElement stateField = driver.findElement(By.cssSelector("input[data-qa*='state']"));
 
         //Enter State(Delaware)
         stateField.sendKeys("Delaware");
+
+
+        //How can I create the myDriver object -- such that I can create a sendKeys method that can send these parameters?
+//         myDriver.sendKeys("input[data-qa*='state']" , "Delaware"); // Create wrapper class
 
         //Find and select city field
         WebElement cityField = driver.findElement(By.cssSelector("input[data-qa*='city']"));
