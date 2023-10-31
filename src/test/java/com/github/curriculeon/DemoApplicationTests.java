@@ -155,6 +155,9 @@ public class DemoApplicationTests {
         driver.findElement(By.cssSelector("button[data-qa='create-account']")).click();
 
 
+        // click continue
+        driver.findElement(By.cssSelector("a[href*='/']")).click();
+
         // Close the WebDriver
 //            driver.quit();
 
