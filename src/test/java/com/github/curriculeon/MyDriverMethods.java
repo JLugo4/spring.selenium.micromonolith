@@ -6,6 +6,6 @@ package com.github.curriculeon;
 //         sendKey(SomeSelectorType, SelectorValue, "Keys to send");
 public class MyDriverMethods {
 
-    
+
 
 }

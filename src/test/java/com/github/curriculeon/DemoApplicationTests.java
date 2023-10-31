@@ -5,10 +5,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -148,9 +145,15 @@ public class DemoApplicationTests {
         //Enter mobile number
         mobileNumberField.sendKeys("(555) 555 - 5555");
 
+        // Create a JavascriptExecutor object
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        // Scroll down the page by a specific number of pixels (e.g., 500 pixels)
+        js.executeScript("window.scrollBy(0, 500)");
+
         //Find and click create account
-        WebElement createAccountButton = driver.findElement(By.cssSelector("button[data-qa='create-account']"));
-        createAccountButton.sendKeys(Keys.ENTER);
+        driver.findElement(By.cssSelector("button[data-qa='create-account']")).click();
+        
 
         // Close the WebDriver
 //            driver.quit();
