@@ -153,7 +153,7 @@ public class DemoApplicationTests {
 
         //Find and click create account
         driver.findElement(By.cssSelector("button[data-qa='create-account']")).click();
-        
+
 
         // Close the WebDriver
 //            driver.quit();

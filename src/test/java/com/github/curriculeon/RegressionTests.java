@@ -102,6 +102,14 @@ public class RegressionTests {
         //Select "Recieve special offers from our partners!"
         driver.findElement(By.cssSelector("input[name*='optin']")).click();
 
+        WebElement firstNameField = driver.findElement(By.cssSelector("input[data-qa*='first_name']"));
+
+        firstNameField.sendKeys("DeanDre");
+
+        WebElement lastNameField = driver.findElement(By.cssSelector("input[data-qa*='last_name']"));
+
+        lastNameField.sendKeys("WallsDavis");
+
     } // END TEST
 
 }
