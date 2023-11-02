@@ -99,17 +99,48 @@ public class RegressionTests {
         // Select "Sign up for our newsleter!" box
         driver.findElement(By.cssSelector("input[name*='newsletter']")).click();
 
-        //Select "Recieve special offers from our partners!"
+        //Select "Receive special offers from our partners!"
         driver.findElement(By.cssSelector("input[name*='optin']")).click();
 
         WebElement firstNameField = driver.findElement(By.cssSelector("input[data-qa*='first_name']"));
+
+        firstNameField.click();
 
         firstNameField.sendKeys("DeanDre");
 
         WebElement lastNameField = driver.findElement(By.cssSelector("input[data-qa*='last_name']"));
 
+        lastNameField.click();
+
         lastNameField.sendKeys("WallsDavis");
 
+        WebElement companyField = driver.findElement(By.cssSelector("input[data-qa*='company']"));
+
+        companyField.click();
+
+        companyField.sendKeys("123456");
+
+        WebElement addressField = driver.findElement(By.cssSelector("input[data-qa*='address']"));
+
+        addressField.click();
+
+        addressField.sendKeys("SomeAddressWithNoRdOrAveOrNumbers");
+
+        WebElement address2Field = driver.findElement(By.cssSelector("input[data-qa*='address2']"));
+
+        address2Field.click();
+
+        address2Field.sendKeys("SomeOtherAddressWithNoNumbers");
+
+        WebElement countryDropDown = driver.findElement(By.cssSelector("select[data-qa*='country']"));
+
+        countryDropDown.sendKeys("un");
+
+        WebElement stateField = driver.findElement(By.cssSelector("input[data-qa*='state']"));
+
+        stateField.click();
+
+        stateField.sendKeys("DelawareMaryland");
     } // END TEST
 
 }
