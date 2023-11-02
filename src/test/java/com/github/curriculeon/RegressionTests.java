@@ -5,10 +5,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -104,31 +101,21 @@ public class RegressionTests {
 
         WebElement firstNameField = driver.findElement(By.cssSelector("input[data-qa*='first_name']"));
 
-        firstNameField.click();
-
         firstNameField.sendKeys("DeanDre");
 
         WebElement lastNameField = driver.findElement(By.cssSelector("input[data-qa*='last_name']"));
-
-        lastNameField.click();
 
         lastNameField.sendKeys("WallsDavis");
 
         WebElement companyField = driver.findElement(By.cssSelector("input[data-qa*='company']"));
 
-        companyField.click();
-
         companyField.sendKeys("123456");
 
         WebElement addressField = driver.findElement(By.cssSelector("input[data-qa*='address']"));
 
-        addressField.click();
-
         addressField.sendKeys("SomeAddressWithNoRdOrAveOrNumbers");
 
         WebElement address2Field = driver.findElement(By.cssSelector("input[data-qa*='address2']"));
-
-        address2Field.click();
 
         address2Field.sendKeys("SomeOtherAddressWithNoNumbers");
 
@@ -138,9 +125,31 @@ public class RegressionTests {
 
         WebElement stateField = driver.findElement(By.cssSelector("input[data-qa*='state']"));
 
-        stateField.click();
-
         stateField.sendKeys("DelawareMaryland");
+
+        WebElement cityField = driver.findElement(By.cssSelector("input[data-qa*='city']"));
+
+        cityField.sendKeys("12345678");
+
+        WebElement zipcodeField = driver.findElement(By.cssSelector("input[data-qa*='zipcode']"));
+
+        zipcodeField.sendKeys("notAZipCode");
+
+        WebElement mobileNumberField = driver.findElement(By.cssSelector("input[data-qa*='mobile_number']"));
+
+        mobileNumberField.sendKeys("NotNumbers");
+
+        // Create a JavascriptExecutor object
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        // Scroll down the page by a specific number of pixels (e.g., 500 pixels)
+        js.executeScript("window.scrollBy(0, 500)");
+
+        //Find and click create account
+        driver.findElement(By.cssSelector("button[data-qa='create-account']")).click();
+
+        // click continue
+        driver.findElement(By.cssSelector("a[href*='/']")).click();
     } // END TEST
 
 }
